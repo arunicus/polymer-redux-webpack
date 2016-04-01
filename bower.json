@@ -1,0 +1,36 @@
+{
+  "name": "cafienne-ui-redux",
+  "description": "Cafienne UI",
+  "version": "1.0.0",
+  "main": "src/index.html",
+  "authors": [
+    "Danny Kruitbosch <danny.kruitbosch@cafienne.com>"
+  ],
+  "license": "Apache-2.0",
+  "private": true,
+  "keywords": [
+    "cafienne",
+    "cmmn",
+    "ui"
+  ],
+  "moduleType": [
+    "es6"
+  ],
+  "homepage": "http://www.cafienne.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "iron-elements": "PolymerElements/iron-elements#^1.0.9",
+    "polymer": "Polymer/polymer#^1.4.0",
+    "paper-elements": "PolymerElements/paper-elements#^1.0.7",
+    "polymer-redux": "tur-nr/polymer-redux"
+  },
+  "resolutions": {
+    "polymer": "^1.4.0"
+  }
+}
