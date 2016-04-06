@@ -2,7 +2,7 @@
   "name": "cafienne-ui-redux",
   "version": "1.0.0",
   "description": "Cafienne UI",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "js_dev": "webpack-dev-server --hot --colors --progress -d --watch",
     "js_dev_demo": "BUILD_DEMO=1 webpack --colors --progress -d --watch",

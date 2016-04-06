@@ -2,7 +2,7 @@
   "name": "cafienne-ui-redux",
   "description": "Cafienne UI",
   "version": "1.0.0",
-  "main": "src/index.html",
+  "main": "app/index.html",
   "authors": [
     "Danny Kruitbosch <danny.kruitbosch@cafienne.com>"
   ],

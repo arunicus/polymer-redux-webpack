@@ -1,21 +1,21 @@
-
 import Polymer from './polymer';
-// import Redux from 'redux';
+import store from './elements/store';
 import { addTodo } from './actions';
-import store from './store';
 import PolymerRedux from '../bower_components/polymer-redux/polymer-redux';
 
-// require('redux');
+require('./elements/todo-list');
 
 const ReduxBehavior = new PolymerRedux(store);
 
 class CafienneUi {
+  /*
   get listeners() {
     return {
       'nameBtn.tap': 'handleName',
       'agentBtn.tap': 'handleAgent',
     };
   }
+  */
 
   get behaviors() {
     return this._behaviors || (this._behaviors = [ReduxBehavior]);
@@ -30,20 +30,15 @@ class CafienneUi {
     this.is = 'cafienne-ui';
     this._behaviors = [ReduxBehavior];
     this.properties = {
-      name: {
-        type: String,
-        statePath: 'name',
+      store: {
+        type: Object,
       },
     };
   }
   ready() {
-    console.log('Cafienne UI Ready');
-  }
-  handleName() {
-    this.dispatch(addTodo('Enter your name'));
-  }
-  handleAgent() {
-    this.dispatch(addTodo('Enter your secret agent code'));
+    this.store = store;
+    store.dispatch(addTodo('Test Polymer and Redux'));
+    // console.log(this.store);
   }
 }
 

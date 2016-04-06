@@ -1,5 +1,5 @@
 import { createStore, compose } from 'redux';
-import todoApp from './reducers';
+import todoApp from '../reducers';
 
 export default createStore(
   todoApp,

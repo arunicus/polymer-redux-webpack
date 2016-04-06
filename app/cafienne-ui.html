@@ -1,0 +1,21 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-material/paper-material.html">
+<link rel="import" href="./elements/todo-list.html">
+<link rel="import" href="../bower_components/polymer-redux/polymer-redux.html">
+
+<dom-module id="cafienne-ui">
+  <template>
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <h1>This is the Cafienne UI</h1>
+  <paper-material elevation="1">
+    <todo-list></todo-list>
+  </paper-material>
+
+</template>
+</dom-module>
+
+<script src="../build/_app_compiled.js"></script>

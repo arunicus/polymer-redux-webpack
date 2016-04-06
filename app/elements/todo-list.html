@@ -1,0 +1,32 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-list/iron-list.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+
+<dom-module id="todo-list">
+  <template>
+    <style>
+      :host {
+        display: block;
+        padding: 20px;
+        margin: 20px;
+      }
+    </style>
+    <h2>This is the todo list</h2>
+      <iron-list items="[[todos]]" as="todo">
+        <ul>
+        <template>
+          <li>[[todo.text]]</li>
+        </template>
+        </ul>
+      </iron-list>
+  <div>
+    <paper-input id="new" label="New ToDo">
+      <paper-icon-button suffix icon="clear" on-tap="clearInput"></paper-icon-button>
+    </paper-input>
+    <paper-button id="add" raised>ADD</paper-button>
+  </div>
+  </template>
+</dom-module>
