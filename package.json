@@ -4,7 +4,7 @@
   "description": "Cafienne UI",
   "main": "index.js",
   "scripts": {
-    "js_dev": "webpack-dev-server --colors --progress -d --watch",
+    "js_dev": "webpack-dev-server --hot --colors --progress -d --watch",
     "js_dev_demo": "BUILD_DEMO=1 webpack --colors --progress -d --watch",
     "js_prod": "BUILD_DEV=0 webpack --colors --progress -p -d",
     "js_demo": "BUILD_DEV=0 BUILD_DEMO=1 webpack --colors --progress -p -d",

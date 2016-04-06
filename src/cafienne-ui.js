@@ -1,6 +1,6 @@
 
 import Polymer from './polymer';
-// import { createStore } from '../node_modules/redux/dist/redux';
+// import Redux from 'redux';
 import PolymerRedux from '../bower_components/polymer-redux/polymer-redux';
 
 

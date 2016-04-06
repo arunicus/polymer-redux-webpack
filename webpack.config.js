@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const nodeModDir = __dirname + '/node_modules';
+
 const definePlugin = new webpack.DefinePlugin({
   __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'true')),
   __DEMO__: JSON.stringify(JSON.parse(process.env.BUILD_DEMO || 'false')),
@@ -15,15 +17,16 @@ module.exports = {
   output: {
     path: 'build',
     filename: '[name].js',
+    publicPath: '/src/',
   },
   module: {
+    noParse: [nodeModDir + '/redux/dist/redux.js'],
     loaders: [
       {
-        loader: 'babel-loader',
+        loader: 'babel',
         test: /.js$/,
         include: [
           path.resolve(__dirname, 'src'),
-          path.resolve(__dirname, 'bower_components/polymer-redux'),
         ],
       },
     ],
