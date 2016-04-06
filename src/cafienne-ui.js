@@ -1,19 +1,11 @@
 
 import Polymer from './polymer';
 // import Redux from 'redux';
+import { addTodo } from './actions';
+import store from './store';
 import PolymerRedux from '../bower_components/polymer-redux/polymer-redux';
 
-
-const store = Redux.createStore((state, action) => {
-  switch (action.type) {
-    case 'agent':
-      return { name: '007' };
-    case 'name':
-      return { name: 'James Bond' };
-    default:
-      return { name: 'Danny Kruitbosch' };
-  }
-}, window.devToolsExtension ? window.devToolsExtension() : undefined);
+// require('redux');
 
 const ReduxBehavior = new PolymerRedux(store);
 
@@ -48,10 +40,10 @@ class CafienneUi {
     console.log('Cafienne UI Ready');
   }
   handleName() {
-    this.dispatch({ type: 'name' });
+    this.dispatch(addTodo('Enter your name'));
   }
   handleAgent() {
-    this.dispatch({ type: 'agent' });
+    this.dispatch(addTodo('Enter your secret agent code'));
   }
 }
 

@@ -1,8 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const nodeModDir = __dirname + '/node_modules';
-
 const definePlugin = new webpack.DefinePlugin({
   __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'true')),
   __DEMO__: JSON.stringify(JSON.parse(process.env.BUILD_DEMO || 'false')),
@@ -12,15 +10,13 @@ const definePlugin = new webpack.DefinePlugin({
 module.exports = {
   entry: {
     _app_compiled: './src/cafienne-ui.js',
-    // service_worker: './src/service-worker/index.js',
   },
   output: {
     path: 'build',
     filename: '[name].js',
-    publicPath: '/src/',
+    publicPath: '/',
   },
   module: {
-    noParse: [nodeModDir + '/redux/dist/redux.js'],
     loaders: [
       {
         loader: 'babel',

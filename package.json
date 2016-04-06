@@ -30,8 +30,10 @@
     "eslint-config-airbnb": "^6.2.0",
     "eslint-plugin-react": "^4.2.3",
     "eslint-plugin-redux": "^0.1.0",
+    "html-loader": "^0.4.3",
     "html-minifier": "^1.4.0",
     "vulcanize": "^1.14.8",
+    "vulcanize-loader": "^1.1.1",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1"
   }
