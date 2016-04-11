@@ -1,9 +1,10 @@
 import Polymer from '../polymer';
 import store from './store';
 import { addTodo } from '../actions';
-import PolymerRedux from '../../bower_components/polymer-redux/polymer-redux';
+// import PolymerRedux from '../../bower_components/polymer-redux/polymer-redux';
+// import PolymerRedux from './redux-behavior';
 
-const ReduxBehavior = new PolymerRedux(store);
+const ReduxBehavior = window.PolymerRedux(store);
 
 class TodoList {
   get listeners() {
@@ -21,9 +22,11 @@ class TodoList {
     this.is = 'todo-list';
     this._behaviors = [ReduxBehavior];
     this.properties = {
-      foo: {
-        type: String,
-        value: 'todo-list',
+      selectedItem: {
+        type: Object,
+      },
+      todo: {
+        type: Object,
       },
       todos: {
         type: Array,
@@ -38,6 +41,20 @@ class TodoList {
   }
   clearInput() {
     this.$.new.value = '';
+  }
+  _computeClass(isSelected) {
+    console.log(this.selectedItem);
+    let classes = 'item';
+    if (isSelected) {
+      classes += ' selected';
+    }
+    return classes;
+  }
+  _completeTodo(e) {
+    console.log(e.model);
+    let classes = 'item';
+    classes += ' completed';
+    return classes;
   }
 }
 

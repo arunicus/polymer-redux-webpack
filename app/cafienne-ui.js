@@ -2,6 +2,7 @@ import Polymer from './polymer';
 import store from './elements/store';
 import { addTodo } from './actions';
 import PolymerRedux from '../bower_components/polymer-redux/polymer-redux';
+// import PolymerRedux from './elements/redux-behavior';
 
 require('./elements/todo-list');
 

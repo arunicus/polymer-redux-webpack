@@ -9,13 +9,19 @@
     :host {
       display: block;
     }
+
+    paper-material {
+      width: 40%;
+      padding: 30px;
+      margin: 20px;
+    }
   </style>
-  <h1>This is the Cafienne UI</h1>
+  <h1>This is the Todo UI</h1>
   <paper-material elevation="1">
-    <todo-list></todo-list>
+    <todo-list id="todo-list"></todo-list>
   </paper-material>
 
 </template>
 </dom-module>
 
-<script src="../build/_app_compiled.js"></script>
+<script src="http://localhost:8080/build/_app_compiled.js"></script>
