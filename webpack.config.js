@@ -9,7 +9,7 @@ const definePlugin = new webpack.DefinePlugin({
 module.exports = {
   context: path.join(__dirname, 'app'),
   entry: {
-    _app_compiled: './cafienne-ui.js',
+    app: './main/app.js',
   },
   output: {
     path: 'build',

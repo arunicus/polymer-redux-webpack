@@ -4,11 +4,11 @@
   "description": "Cafienne UI",
   "main": "index.html",
   "scripts": {
-    "js_dev": "webpack-dev-server --hot --colors --progress -d --watch",
+    "js_dev": "webpack-dev-server --port 1982 --hot --colors --progress -d --watch",
     "js_dev_demo": "BUILD_DEMO=1 webpack --colors --progress -d --watch",
     "js_prod": "BUILD_DEV=0 webpack --colors --progress -p -d",
     "js_demo": "BUILD_DEV=0 BUILD_DEMO=1 webpack --colors --progress -p -d",
-    "frontend_html": "vulcanize --inline-css --inline-scripts --strip-comments src/cafienn-ui.html > build/cafienne-ui.vulcan.html && node script/minify.js",
+    "frontend_html": "vulcanize --inline-css --inline-scripts --strip-comments app/wc.html > build/wc-bundle.html && node script/build.js",
     "frontend_prod": "npm run js_prod && bower install && npm run frontend_html",
     "frontend_demo": "npm run js_demo && bower install && npm run frontend_html",
     "test": "eslint src"

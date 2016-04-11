@@ -1,7 +1,7 @@
 var minify = require('html-minifier');
 var fs = require('fs');
 
-var html = fs.readFileSync('build/cafienne-ui.vulcan.html').toString();
+var html = fs.readFileSync('build/wc-bundle.html').toString();
 
 var minifiedHtml = minify.minify(html, {
   customAttrAssign: [/\$=/],
@@ -14,4 +14,6 @@ var minifiedHtml = minify.minify(html, {
   minifyJS: true,
 });
 
-fs.writeFileSync('build/cafienne-ui.html', minifiedHtml);
+fs.writeFileSync('build/wc.html', minifiedHtml);
+fs.createReadStream('./app/index.html').pipe(fs.createWriteStream('build/index.html'));
+fs.unlink('build/wc-bundle.html');

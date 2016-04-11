@@ -1,5 +1,5 @@
-import Polymer from '../polymer';
-import store from './store';
+import Polymer from '../main/polymer';
+import store from '../main/store';
 import { addTodo } from '../actions';
 import PolymerRedux from '../../bower_components/polymer-redux/polymer-redux';
 

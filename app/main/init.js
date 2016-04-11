@@ -1,4 +1,4 @@
-((document) => {
+export default function (document) {
   'use strict';
 
   function lazyLoadPolymerAndElements() {
@@ -44,4 +44,4 @@
   } else {
     lazyLoadPolymerAndElements();
   }
-})(document);
+}

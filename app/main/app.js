@@ -1,10 +1,12 @@
-import Polymer from './polymer';
-import store from './elements/store';
-import { addTodo } from './actions';
-import PolymerRedux from '../bower_components/polymer-redux/polymer-redux';
+import Polymer from '../main/polymer';
+import store from '../main/store';
+import PolymerRedux from '../../bower_components/polymer-redux/polymer-redux';
 
-require('./elements/todo-list');
+// This custom import is required for webpack to traverse over all the imports
+import '../elements/todo-list';
+import polymerInit from '../main/init';
 
+polymerInit(document);
 const ReduxBehavior = new PolymerRedux(store);
 
 class CafienneUi {
@@ -37,8 +39,6 @@ class CafienneUi {
   }
   ready() {
     this.store = store;
-    store.dispatch(addTodo('Test Polymer and Redux'));
-    // console.log(this.store);
   }
 }
 
