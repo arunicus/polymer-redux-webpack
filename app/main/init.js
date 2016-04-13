@@ -1,12 +1,14 @@
 import Polymer from '../main/polymer';
+import PolymerRedux from '../../bower_components/polymer-redux/polymer-redux';
+import store from '../main/store';
 
-export default function (document) {
+function initPolymer() {
   'use strict';
 
   function lazyLoadPolymerAndElements() {
     // Use native shadow dom if supported by browser-sync-binding
     window.Polymer = window.Polymer || { dom: 'shadow' };
-    
+
     window.addEventListener('WebComponentsReady', () => {
       console.log('WebComponents are ready');
     });
@@ -47,3 +49,6 @@ export default function (document) {
     lazyLoadPolymerAndElements();
   }
 }
+
+initPolymer();
+window.reduxBehavior = new PolymerRedux(store);

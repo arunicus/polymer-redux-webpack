@@ -1,9 +1,6 @@
 import Polymer from '../main/polymer';
+import '../main/init';
 import '../elements/todo-list';
-import polymerInit from '../main/init';
-
-// Add to global
-polymerInit(document);
 
 class CafienneUi {
 
