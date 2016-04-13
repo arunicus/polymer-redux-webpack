@@ -1,26 +1,24 @@
 import Polymer from '../main/polymer';
-import store from '../main/store';
 import { addTodo } from '../actions';
-// import PolymerRedux from '../../bower_components/polymer-redux/polymer-redux';
-// import PolymerRedux from './redux-behavior';
-
-const ReduxBehavior = window.PolymerRedux(store);
 
 class TodoList {
-  get listeners() {
-    return { 'add.tap': '_addNew' };
-  }
+
   get behaviors() {
-    return this._behaviors || (this._behaviors = [ReduxBehavior]);
+    return this._behaviors || (this._behaviors = [window.reduxBehavior]);
   }
 
   set behaviors(value) {
     this._behaviors = value;
     return;
   }
+
+  // when the user clicks on the add paper-button run _addNew function
+  get listeners() {
+    return { 'add.tap': '_addNew' };
+  }
+
   beforeRegister() {
     this.is = 'todo-list';
-    this._behaviors = [ReduxBehavior];
     this.properties = {
       selectedItem: {
         type: Object,
@@ -31,12 +29,12 @@ class TodoList {
       todos: {
         type: Array,
         statePath: (state) => state.todos,
-      },
+      }
     };
   }
   _addNew() {
     const todo = this.$.new.value;
-    store.dispatch(addTodo(todo));
+    this.dispatch(addTodo(todo));
     this.$.new.value = '';
   }
   clearInput() {

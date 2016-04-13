@@ -1,10 +1,12 @@
+import Polymer from '../main/polymer';
+
 export default function (document) {
   'use strict';
 
   function lazyLoadPolymerAndElements() {
     // Use native shadow dom if supported by browser-sync-binding
     window.Polymer = window.Polymer || { dom: 'shadow' };
-
+    
     window.addEventListener('WebComponentsReady', () => {
       console.log('WebComponents are ready');
     });
