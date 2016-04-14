@@ -1,4 +1,3 @@
-import Polymer from '../main/polymer';
 import PolymerRedux from '../../bower_components/polymer-redux/polymer-redux';
 import store from '../main/store';
 

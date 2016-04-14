@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
-import { ADD_TODO, COMPLETE_TODO, SET_VISIBILITY_FILTER, VisibilityFilters }
-  from '../actions';
+import { ADD_TODO, COMPLETE_TODO, SET_VISIBILITY_FILTER, VisibilityFilters } from '../actions';
 const { SHOW_ALL } = VisibilityFilters;
 
 function visibilityFilter(state = SHOW_ALL, action) {
@@ -18,15 +17,16 @@ function todos(state = [], action) {
       return [
         ...state,
         {
+          index: action.index,
           text: action.text,
           completed: false,
         },
       ];
     case COMPLETE_TODO:
       return state.map((todo, index) => {
-        if (index === action.index) {
+        if (index == action.index) {
           return Object.assign({}, todo, {
-            completed: true,
+            completed: !todo.completed,
           });
         }
         return todo;

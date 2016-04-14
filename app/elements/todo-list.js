@@ -1,20 +1,20 @@
 import Polymer from '../main/polymer';
-import { addTodo } from '../actions';
+import { addTodo, completeTodo } from '../actions';
 
 class TodoList {
 
   get behaviors() {
     return this._behaviors || (this._behaviors = [window.reduxBehavior]);
   }
-
   set behaviors(value) {
     this._behaviors = value;
     return;
   }
 
-  // when the user clicks on the add paper-button run _addNew function
   get listeners() {
-    return { 'add.tap': '_addNew' };
+    return {
+      'add.tap': '_addNew',
+    };
   }
 
   beforeRegister() {
@@ -29,30 +29,33 @@ class TodoList {
       todos: {
         type: Array,
         statePath: (state) => state.todos,
-      }
+      },
     };
   }
+
   _addNew() {
     const todo = this.$.new.value;
     this.dispatch(addTodo(todo));
     this.$.new.value = '';
   }
+
   clearInput() {
     this.$.new.value = '';
   }
-  _computeClass(isSelected) {
-    console.log(this.selectedItem);
+  _computeClass(isSelected, completed) {
     let classes = 'item';
     if (isSelected) {
       classes += ' selected';
     }
+    if (completed) {
+      classes += ' completed';
+    }
+
     return classes;
   }
   _completeTodo(e) {
-    console.log(e.model);
-    let classes = 'item';
-    classes += ' completed';
-    return classes;
+    const args = e.target.getAttribute('data-args').split(',');
+    this.dispatch(completeTodo(args[0]));
   }
 }
 
